@@ -1,15 +1,7 @@
-"VertexlitGeneric"
-{
-	"$baseTexture" "models/bots/boss_bot/blimp_base_1_damage3"
+Patch {
+	include "materials/models/bots/boss_bot/blimp_base_1_damage1.vmt"
 
-	"$phong" "1"
-	"$phongexponent" "25"
-	"$phongboost" "0"
-	"$lightwarptexture" "models/player/pyro/pyro_lightwarp"
-	"$phongfresnelranges"	"[.25 1 4]"
-	"$basemapalphaphongmask" "1"
-
-	"$rimlight" "1"
-	"$rimlightexponent" "4"
-	"$rimlightboost" ".65"
+	insert {
+		$basetexture "models/bots/boss_bot/blimp_base_1_damage3"
+	}
 }
