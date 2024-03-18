@@ -1,13 +1,10 @@
-"VertexLitGeneric"
-{
-	"$basetexture"	"models/bots/boss_bot/tank_drill"
-	"$surfaceprop"	"default"
-	"$basemapalphaphongmask" 1
+VertexLitGeneric {
+	$basetexture	"models/bots/boss_bot/tank_drill"
 
-	"$phong"	"1"
-	"$phongboost"	"2"
-	"$phongexponent"	"40"
-	"$phongfresnelranges"	"[.5 1 2]"
-	
-	"$rimlight" 1
+	$bumpmap "models/bots/boss_bot/tank_drill_nor"
+
+	$phong	1
+	$phongboost	2
+	$phongexponent	40
+	$phongfresnelranges	"[.5 1 2]"
 }
