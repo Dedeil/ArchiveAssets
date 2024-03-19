@@ -1,7 +1,16 @@
-Patch {
-	include "materials/models/bots/boss_bot/blimp_addons.vmt"
+VertexlitGeneric {
+	$basetexture "models/bots/boss_bot/blimp_bomb_box"
 
-	insert {
-		$basetexture "models/bots/boss_bot/blimp_bomb_box"
-	}
+	$bumpmap "models/bots/boss_bot/blimp_bomb_box_nor"
+
+	$phong	1
+	$phongboost	2
+	$phongexponent	40
+	$phongfresnelranges	"[.5 1 2]"
+
+	$lightwarptexture "models/player/pyro/pyro_lightwarp"
+
+	$rimlight 1
+	$rimlightexponent 4
+	$rimlightboost .65
 }

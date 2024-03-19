@@ -1,11 +1,12 @@
 VertexlitGeneric {
 	$basetexture "models/bots/boss_bot/blimp_base_1"
 
+	$bumpmap "models/bots/boss_bot/blimp_base_1_nor"
+
 	$phong	1
 	$phongboost	2
 	$phongexponent	40
-	$phongfresnelranges	[.5 1 2]
-	$basemapalphaphongmask 1
+	$phongfresnelranges	"[.5 1 2]"
 
 	$lightwarptexture "models/player/pyro/pyro_lightwarp"
 

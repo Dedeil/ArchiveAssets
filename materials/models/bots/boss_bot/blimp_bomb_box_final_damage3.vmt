@@ -1,5 +1,5 @@
 Patch {
-	include "materials/models/bots/boss_bot/blimp_base_1_final.vmt"
+	include "materials/models/bots/boss_bot/blimp_bomb_box.vmt"
 
 	insert {
 		$basetexture "models/bots/boss_bot/blimp_bomb_box_final_damage3"
