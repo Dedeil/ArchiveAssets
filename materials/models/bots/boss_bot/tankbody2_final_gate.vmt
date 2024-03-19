@@ -1,0 +1,3 @@
+Patch {
+	include "materials/models/bots/boss_bot/tankbody2_final.vmt"
+}

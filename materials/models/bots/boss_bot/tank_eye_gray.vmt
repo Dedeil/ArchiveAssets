@@ -1,6 +1,7 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models/bots/boss_bot/tank_eye_gray"
+Patch {
+	include "materials/models/bots/boss_bot/tank_eye.vmt"
 
-	"$selfillum" 1
+	insert {
+		$basetexture "models/bots/boss_bot/tank_eye_gray"
+	}
 }
