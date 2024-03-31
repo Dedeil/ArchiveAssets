@@ -1,57 +1,51 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models\bots\soldier\golibody"
-	"$bumpmap" "models\bots\soldier\golinormal"
+VertexLitGeneric {
+	$basetexture "models/bots/soldier/golibody"
 
-	"$detail" "effects/tiledfire/fireLayeredSlowTiled512.vtf"	
-	"$detailscale" "5"
-	"$detailblendfactor" .01
-	"$detailblendmode" 6
+	$bumpmap "models/bots/soldier/golinormal"
 
-	"$yellow" "0"
-	"$one" "1"
-	"$phong" "1"
-	"$phongexponent" "10"
-	"$phongboost" "4"	
-	"$phongfresnelranges"	"[.5 .7 1]"
-	"$halflambert" "0"
+	$detail            "effects/tiledfire/firelayeredslowtiled512"
+	$detailscale       5
+	$detailblendfactor 0
+	$detailblendmode   6
 
-	"$lightwarptexture" "models\bots\soldier\robot_lightwarp"
+	$phong              1
+	$phongexponent      10
+	$phongboost         4
+	$phongfresnelranges	"[.5 .7 1]"
+	$halflambert        0
 
-	"$bumpmapalphaphongmask" "1"
-//	"$basemapalphaphongmask" "1"
-	
-	"$rimlight" "1"						
-	"$rimlightexponent" "1"				
-	"$rimlightboost" "2"
-	"$rimmask" "1"
+	$lightwarptexture "models/lightwarps/robot_lightwarp"
+
+	$rimlight         1
+	$rimlightexponent 1
+	$rimlightboost    2
+	$rimmask          1
+
+	$yellow 0
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
+	$cloakPassEnabled 1
 
-	"Proxies"
-	{
-		"spy_invis"
-		{
+	Proxies {
+		spy_invis {}
+
+		AnimatedTexture {
+			animatedtexturevar         $detail
+			animatedtextureframenumvar $detailframe
+			animatedtextureframerate   30
 		}
-		"AnimatedTexture"
-		{
-			"animatedtexturevar" "$detail"
-			"animatedtextureframenumvar" "$detailframe"
-			"animatedtextureframerate" 30
+
+		BurnLevel {
+			resultVar $detailblendfactor
 		}
-		"BurnLevel"
-		{
-			"resultVar" "$detailblendfactor"
+
+		YellowLevel {
+			resultVar $yellow
 		}
-		"YellowLevel"
-		{
-			"resultVar" "$yellow"
-		}
-		"Equals"
-		{
-			"srcVar1"  "$yellow"
-			"resultVar" "$color2"
+
+		Equals {
+			srcVar1   $yellow
+			resultVar $color2
 		}
 
 	}
