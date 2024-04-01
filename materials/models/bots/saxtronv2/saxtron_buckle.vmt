@@ -1,66 +1,49 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models/bots/saxtronv2/saxtron_buckle"
-	"$basemapalphaphongmask" "1"
+VertexLitGeneric {
+	$basetexture "models/bots/saxtronv2/saxtron_buckle"
 
-	"$detail" "effects/tiledfire/fireLayeredSlowTiled512.vtf"
-	"$detailscale" "1"
-	"$detailblendfactor" 0
-	"$detailblendmode" 6
+	$detail            "effects/tiledfire/firelayeredslowtiled512"
+	$detailscale       5
+	$detailblendfactor 0
+	$detailblendmode   6
 
-	"$envmap" "env_cubemap"
-	"$envmaptint" "[.1 .1 .1]"
+	>=DX90 {
+		$envmap     env_cubemap
+		$envmaptint "[.1 .1 .1]"
+	}
 
-	"$phong" "1"
-	"$phongexponent" "35"
-	"$phongboost" "1"
-	"$lightwarptexture" "models/lightwarps/robot_lightwarp"
-	"$phongfresnelranges"	"[1 1 1]"
-
-	"$tempvar" "0"
-
-	"$basephongexponent" "15"
-	"$basephongboost" "5"
-
-	"$commadd_phongexponent" "40"
-	"$commadd_phongboost" 	"22.5"
-	"$commweapon"		"0"
-
-	"$glowcolor" "1"
+	$phong              1
+	$basephongboost     5
+	$phongexponent      35
+	$phongboost         1
+	$phongfresnelranges	"[1 1 1]"
 	
-	"$rimlight" "1"
-	"$rimlightexponent" "25"
-	"$rimlightboost" "2"
+	$lightwarptexture "models/lightwarps/robot_lightwarp"
 
-	"$yellow" "0"
-	"$one" "1"
+	$rimlight         1
+	$rimlightexponent 25
+	$rimlightboost    2
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
+	$cloakPassEnabled 1
 
-	"Proxies"
-	{
-		"spy_invis"
-		{
+	Proxies {
+		// Team-colored cloak
+		spy_invis {}
+
+		// Burning
+		AnimatedTexture {
+			animatedtexturevar         $detail
+			animatedtextureframenumvar $detailframe
+			animatedtextureframerate   30
 		}
-		"AnimatedTexture"
-		{
-			"animatedtexturevar" "$detail"
-			"animatedtextureframenumvar" "$detailframe"
-			"animatedtextureframerate" 30
+
+		BurnLevel {
+			resultVar $detailblendfactor
 		}
-		"BurnLevel"
-		{
-			"resultVar" "$detailblendfactor"
-		}
-		"YellowLevel"
-		{
-			"resultVar" "$yellow"
-		}
-		"Equals"
-		{
-			"srcVar1"  "$yellow"
-			"resultVar" "$color2"
+
+		// Jarate
+		YellowLevel {
+			resultVar $color2
 		}
 	}
 }

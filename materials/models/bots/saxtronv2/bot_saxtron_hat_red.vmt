@@ -1,58 +1,44 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models/bots/saxtronv2/bot_saxtron_hat_red"
-	"$selfillum" "0"
-	"$basemapalphaphongmask" 1
+VertexLitGeneric {
+	$basetexture "models/bots/saxtronv2/bot_saxtron_hat_red"
 
-	//phong properties
-	"$phong"	"1"
-	"$phongboost"	"0"
-	"$phongexponent"	"40"
-	"$phongfresnelranges"	"[.5 1 2]"
-	"$halflambert" "0"
-	
-	"$lightwarptexture" "models/lightwarps/robot_lightwarp"
+	$detail            "effects/tiledfire/firelayeredslowtiled512"
+	$detailscale       5
+	$detailblendfactor 0
+	$detailblendmode   6
 
-	"$rimlight" 1
-	"$rimlightexponent" "1"				
-	"$rimlightboost" "2"
-	"$rimmask" "1"
+	$phong              1
+	$phongboost         0
+	$phongexponent      40
+	$phongfresnelranges "[.5 1 2]"
+	$halflambert        0
 
-	"$detail" "effects/tiledfire/fireLayeredSlowTiled512.vtf"	
-	"$detailscale" "3"
-	"$detailblendfactor" 0
-	"$detailblendmode" 6
+	$lightwarptexture "models/lightwarps/robot_lightwarp"
 
-	"$yellow" "0"
-	"$one" "1"
+	$rimlight         1
+	$rimlightexponent 1
+	$rimlightboost    2
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
+	$cloakPassEnabled 1
 
-	"Proxies"
-	{
-		"spy_invis"
-		{
-		}
-		"AnimatedTexture"
-		{
-			"animatedtexturevar" "$detail"
-			"animatedtextureframenumvar" "$detailframe"
-			"animatedtextureframerate" 30
-		}
-		"BurnLevel"
-		{
-			"resultVar" "$detailblendfactor"
-		}
-		"YellowLevel"
-		{
-			"resultVar" "$yellow"
-		}
-		"Equals"
-		{
-			"srcVar1"  "$yellow"
-			"resultVar" "$color2"
+	Proxies {
+		// Team-colored cloak
+		spy_invis {}
+
+		// Burning
+		AnimatedTexture {
+			animatedtexturevar         $detail
+			animatedtextureframenumvar $detailframe
+			animatedtextureframerate   30
 		}
 
+		BurnLevel {
+			resultVar $detailblendfactor
+		}
+
+		// Jarate
+		YellowLevel {
+			resultVar $color2
+		}
 	}
 }
