@@ -1,5 +1,7 @@
- "VertexLitGeneric"
-{
-	"$baseTexture" "models/buildables/amplifier_test/amplifier_blue"
-	"$nocull" 1
+Patch {
+	include "materials/models/buildables/amplifier_test/amplifier.vmt"
+
+	insert {
+		$basetexture "models/buildables/amplifier_test/amplifier_blue"
+	}
 }

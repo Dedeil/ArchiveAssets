@@ -1,12 +1,18 @@
- "VertexLitGeneric"
-{
-	"$baseTexture" "models/buildables/amplifier_test/amplifier_anim2"
-	"Proxies"
-	{
-		"AnimatedTexture"
-		{
-		"animatedtexturevar" "$basetexture" "animatedtextureframenumvar" "$frame"
-		"animatedtextureframerate" 15
+VertexLitGeneric {
+	$baseTexture "models/buildables/amplifier_test/amplifier_anim2"
+
+	$tick 0
+
+	Proxies {
+		LinearRamp {
+			rate -90
+			initialValue 0
+			resultVar $tick
+		}
+
+		TextureTransform {
+			rotateVar $tick
+			resultVar $baseTextureTransform
 		}
 	}
 }

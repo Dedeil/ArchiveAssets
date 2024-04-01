@@ -1,5 +1,5 @@
- "VertexLitGeneric"
-{
-	"$baseTexture" "models/buildables/amplifier_test/amplifier_bolt"
-	"$alphatest" "1"
+VertexLitGeneric {
+	$baseTexture "models/buildables/amplifier_test/amplifier_bolt"
+
+	$alphatest 1
 }

@@ -1,13 +1,7 @@
- "VertexLitGeneric"
-{
-	"$baseTexture" "models/buildables/amplifier_test/amplifier_holo_blue"
-	"$translucent" 1
-	"Proxies"
-	{
-		"AnimatedTexture"
-		{
-		"animatedtexturevar" "$basetexture" "animatedtextureframenumvar" "$frame"
-		"animatedtextureframerate" 7
-		}
-	}	
+Patch {
+	include "materials/models/buildables/amplifier_test/amplifier_holo.vmt"
+
+	insert {
+		$color2 "{193 196 255}"
+	}
 }
