@@ -1,75 +1,67 @@
-"VertexLitGeneric"
-{
-	"$baseTexture" "models\weapons\c_models\c_carvedcutter\c_carvedcutter"
-	"$basemapalphaphongmask" 1
-	"$bumpmap"	   "models\weapons\c_models\c_carvedcutter\c_carvedcutter_normal"
-	"$halflambert" 1
+VertexLitGeneric {
+	$baseTexture "models\weapons\c_models\c_carvedcutter\c_carvedcutter"
+
+	$bumpmap "models\weapons\c_models\c_carvedcutter\c_carvedcutter_normal"
+
+	$phong              1
+	$phongboost         6
+	$phongexponent      2
+	$phongfresnelranges "[.25 .5 1]"
 	
-	"$basemapalphaphongmask" "1"
-	"$phong" "1"
-	"$phongexponent" "2"
-	"$phongboost" "6"	
-	"$lightwarptexture" "models/lightwarps/weapon_lightwarp"
-	"$phongfresnelranges"	"[.25 .5 1]"
+	$lightwarptexture "models/lightwarps/weapon_lightwarp"
 
-	"$tempvar" "0"
-
-	"$basephongexponent" "2"
-	"$basephongboost" "1"
-
-	"$rimlight" "1"
-	"$rimlightexponent" "4"	
-	"$rimlightboost" "2"
-
-
-	"$glowcolor" "1"
+	$rimlight         1
+	$rimlightexponent 4
+	$rimlightboost    2
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
-	"$sheenPassEnabled" "1"
+	$cloakPassEnabled 1
 
-	"$sheenmap" 		"cubemaps/cubemap_sheen001"
-	"$sheenmapmask" 		"Effects/AnimatedSheen/animatedsheen0"
-	"$sheenmaptint" 		"[ 1 1 1 ]"
-	"$sheenmapmaskframe" 	"0"
-	"$sheenindex" 		"0"
+	// Killstreak
+	$sheenPassEnabled  1
+	$sheenmap          "cubemaps/cubemap_sheen001"
+	$sheenmapmask      "effects/animatedsheen/animatedsheen0"
+	$sheenmaptint      "[1 1 1]"
+	$sheenmapmaskframe 0
+	$sheenindex        0
 
-	"$yellow" "0"
+	// Crits
+	$glowcolor "[1 1 1]"
 
-	"Proxies"
-	{
-		"AnimatedWeaponSheen"
-		{
-			"animatedtexturevar" 		"$sheenmapmask"
-			"animatedtextureframenumvar" 	"$sheenmapmaskframe"
-			"animatedtextureframerate" 		"40"
+	// Jarate
+	$yellow "[1 1 1]"
+
+	Proxies {
+		// Cloaking
+		invis {}
+
+		// Killstreak
+		AnimatedWeaponSheen {
+			animatedtexturevar         $sheenmapmask
+			animatedtextureframenumvar $sheenmapmaskframe
+			animatedtextureframerate   40
 		}
-		"invis"
-		{
+
+		// Crits
+		ModelGlowColor {
+			resultVar $glowcolor
 		}
-		"ModelGlowColor"
-		{
-			"resultVar" "$glowcolor"
+
+		Equals {
+			srcVar1   $glowcolor
+			resultVar $selfillumtint
 		}
-		"Equals"
-		{
-			"srcVar1"  "$glowcolor"
-			"resultVar" "$selfillumtint"
+
+		// Jarate
+		YellowLevel {
+			resultVar $yellow
 		}
-		"Equals"
-		{
-			"srcVar1"  "$glowcolor"
-			"resultVar" "$color2"
-		}
-		"YellowLevel"
-		{
-			"resultVar" "$yellow"
-		}
-		"Multiply"
-		{
-			"srcVar1" "$color2"
-			"srcVar2" "$yellow"
-			"resultVar" "$color2"
+
+		// Crit or Jarate
+		Multiply {
+			srcVar1   $glowcolor
+			srcVar2   $yellow
+			resultVar $color2
 		}
 	}
 }
