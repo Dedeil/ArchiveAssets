@@ -1,61 +1,61 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models\weapons\c_throwbrick/throwbrick.vtf"
-	"$bumpmap"     "models\weapons\c_throwbrick/throwbrick_normals.vtf"
-	
-                "$phong"		"1"
-	"$phongexponent"		"25"
-	"$phongboost"		"0.1"
-	"$phongfresnelranges"		"[.25 .5 1]"
-	"$rimlight"		"0"
-	"$rimlightexponent"		"3"
-	"$rimlightboost"		"1"
-	//"$bumpmapalphaphongmask"		"1"
-	"$cloakPassEnabled"		"1"
-	"$detail"		"effects/tiledfire/fireLayeredSlowTiled512"
-	"$detailscale"		"5"
-	"$detailblendfactor"		"0"
-	"$detailblendmode"		"6"
-	"$yellow"		"0"
-	">=DX90"
-	{
-		"$selfillum"		"0"
-	}
-	"proxies"
-	{
-		"invis"
-		{
+VertexLitGeneric {
+	$basetexture "models/weapons/c_throwbrick/throwbrick"
+
+	$bumpmap "models/weapons/c_throwbrick/throwbrick_normals"
+
+	$phong              1
+	$phongboost         .1
+	$phongexponent      25
+	$phongfresnelranges "[.25 .5 1]"
+
+	// Cloaking
+	$cloakPassEnabled 1
+
+	// Killstreak
+	$sheenPassEnabled  1
+	$sheenmap          "cubemaps/cubemap_sheen001"
+	$sheenmapmask      "effects/animatedsheen/animatedsheen0"
+	$sheenmaptint      "[1 1 1]"
+	$sheenmapmaskframe 0
+	$sheenindex        0
+
+	// Crits
+	$glowcolor "[1 1 1]"
+
+	// Jarate
+	$yellow "[1 1 1]"
+
+	Proxies {
+		// Cloaking
+		invis {}
+
+		// Killstreak
+		AnimatedWeaponSheen {
+			animatedtexturevar         $sheenmapmask
+			animatedtextureframenumvar $sheenmapmaskframe
+			animatedtextureframerate   40
 		}
-		"AnimatedTexture"
-		{
-			"animatedtexturevar"		"$detail"
-			"animatedtextureframenumvar"		"$detailframe"
-			"animatedtextureframerate"		"30"
+
+		// Crits
+		ModelGlowColor {
+			resultVar $glowcolor
 		}
-		"BurnLevel"
-		{
-			"resultVar"		"$detailblendfactor"
+
+		Equals {
+			srcVar1   $glowcolor
+			resultVar $selfillumtint
 		}
-		"ItemTintColor"
-		{
-			"resultVar"		"$colortint_tmp"
+
+		// Jarate
+		YellowLevel {
+			resultVar $yellow
 		}
-		"SelectFirstIfNonZero"
-		{
-			"srcVar1"		"$colortint_tmp"
-			"srcVar2"		"$colortint_base"
-			"resultVar"		"$color2"
-		}
-		"YellowLevel"
-		{
-			"resultVar"		"$yellow"
-		}
-		"Multiply"
-		{
-			"srcVar1"		"$color2"
-			"srcVar2"		"$yellow"
-			"resultVar"		"$color2"
+
+		// Crit or Jarate
+		Multiply {
+			srcVar1   $glowcolor
+			srcVar2   $yellow
+			resultVar $color2
 		}
 	}
 }
-
