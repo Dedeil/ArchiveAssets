@@ -1,68 +1,66 @@
-"VertexlitGeneric"
-{
-	"$baseTexture" "models/weapons/c_models/c_pain/pain"
+VertexlitGeneric {
+	$baseTexture "models/weapons/c_models/c_pain/pain"
 
-	"$phong" "1"
-	"$phongexponent" "8"
-	"$phongboost" "1.9"	
-	"$lightwarptexture" "models/player/pyro/pyro_lightwarp"
-	"$phongfresnelranges"	"[.75 .5 3]"
-	"$halflambert" "1"
-	"$basemapalphaphongmask" "1"
-	
-	"$rimlight" "1"
-	"$rimlightexponent" "20"	
-	"$rimlightboost" "0.5"
+	$phong                 1
+	$phongboost            1.9
+	$phongexponent         8
+	$phongfresnelranges    "[.75 .5 3]"
+	$basemapalphaphongmask 1
 
+	$lightwarptexture "models/player/pyro/pyro_lightwarp"
 
-	"$glowcolor" "1"
+	$rimlight         1
+	$rimlightexponent 20
+	$rimlightboost    .5
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
-	"$sheenPassEnabled" "1"
+	$cloakPassEnabled 1
 
-	"$sheenmap" 		"cubemaps/cubemap_sheen001"
-	"$sheenmapmask" 		"Effects/AnimatedSheen/animatedsheen0"
-	"$sheenmaptint" 		"[ 1 1 1 ]"
-	"$sheenmapmaskframe" 	"0"
-	"$sheenindex" 		"0"
+	// Killstreak
+	$sheenPassEnabled  1
+	$sheenmap          "cubemaps/cubemap_sheen001"
+	$sheenmapmask      "effects/animatedsheen/animatedsheen0"
+	$sheenmaptint      "[1 1 1]"
+	$sheenmapmaskframe 0
+	$sheenindex        0
 
-	"$yellow" "0"
+	// Crits
+	$glowcolor "[1 1 1]"
 
-	"Proxies"
-	{
-		"AnimatedWeaponSheen"
-		{
-			"animatedtexturevar" 		"$sheenmapmask"
-			"animatedtextureframenumvar" 	"$sheenmapmaskframe"
-			"animatedtextureframerate" 		"40"
+	// Jarate
+	$yellow "[1 1 1]"
+
+	Proxies {
+		// Cloaking
+		invis {}
+
+		// Killstreak
+		AnimatedWeaponSheen {
+			animatedtexturevar         $sheenmapmask
+			animatedtextureframenumvar $sheenmapmaskframe
+			animatedtextureframerate   40
 		}
-		"invis"
-		{
+
+		// Crits
+		ModelGlowColor {
+			resultVar $glowcolor
 		}
-		"ModelGlowColor"
-		{
-			"resultVar" "$glowcolor"
+
+		Equals {
+			srcVar1   $glowcolor
+			resultVar $selfillumtint
 		}
-		"Equals"
-		{
-			"srcVar1"  "$glowcolor"
-			"resultVar" "$selfillumtint"
+
+		// Jarate
+		YellowLevel {
+			resultVar $yellow
 		}
-		"Equals"
-		{
-			"srcVar1"  "$glowcolor"
-			"resultVar" "$color2"
-		}
-		"YellowLevel"
-		{
-			"resultVar" "$yellow"
-		}
-		"Multiply"
-		{
-			"srcVar1" "$color2"
-			"srcVar2" "$yellow"
-			"resultVar" "$color2"
+
+		// Crit or Jarate
+		Multiply {
+			srcVar1   $glowcolor
+			srcVar2   $yellow
+			resultVar $color2
 		}
 	}
 }
