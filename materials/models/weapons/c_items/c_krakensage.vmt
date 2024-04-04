@@ -1,42 +1,41 @@
-"VertexLitGeneric"
-{
-	"$basetexture"	"models\weapons\c_items\c_krakensage"
+VertexLitGeneric {
+	$basetexture "models/weapons/c_items/c_krakensage"
+
+	$phong                 1
+	$phongboost            2
+	$phongexponent         25
+	$phongfresnelranges    "[1.5 .5 3]"
+	$basemapalphaphongmask 1
 	
-	"$phong" "1"
-	"$phongexponent" "25"
-	"$phongboost" "2"	
-	"$lightwarptexture" "models\lightwarps\weapon_lightwarp"
-	"$phongfresnelranges"	"[1.5 .5 3]"
-	"$halflambert" "1"
+	$lightwarptexture "models/lightwarps/weapon_lightwarp"
 
-	"$basemapalphaphongmask" "1"
-	
-	"$rimlight" "1"						
-	"$rimlightexponent" "20"				
-	"$rimlightboost" ".25"
+	$rimlight         1
+	$rimlightexponent 20
+	$rimlightboost    .25
 
-	"$selfillum" "1"
-	"$selfillumtint" "[1 .11 .05]"
-
-	
-
-	"$glowcolor" "1"
+	$selfillum     1
+	$selfillumtint "[1 .11 .05]"
 
 	// Cloaking
-	"$cloakPassEnabled" "1"
-	"Proxies"
-	{
-		"weapon_invis"
-		{
-		}
-		"ModelGlowColor"
-		{
-			"resultVar" "$glowcolor"
-		}
-		"Equals"
-		{
-			"srcVar1"  "$glowcolor"
-			"resultVar" "$color2"
+	$cloakPassEnabled 1
+
+	// Killstreak
+	$sheenPassEnabled  1
+	$sheenmap          "cubemaps/cubemap_sheen001"
+	$sheenmapmask      "effects/animatedsheen/animatedsheen0"
+	$sheenmaptint      "[1 1 1]"
+	$sheenmapmaskframe 0
+	$sheenindex        0
+
+	Proxies {
+		// Cloaking
+		invis {}
+
+		// Killstreak
+		AnimatedWeaponSheen {
+			animatedtexturevar         $sheenmapmask
+			animatedtextureframenumvar $sheenmapmaskframe
+			animatedtextureframerate   40
 		}
 	}
 }
