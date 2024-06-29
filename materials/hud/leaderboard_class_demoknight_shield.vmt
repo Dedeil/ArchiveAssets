@@ -1,9 +1,4 @@
-"UnlitGeneric"
-{
-	"$basetexture" "hud/leaderboard_class_demoknight_shield"
-	"%keywords" "tf"
-	"$translucent" 1
-	"$vertexcolor" 1
-	"$no_fullbright" 1
-	"$ignorez" 1
+UnlitGeneric {
+	$baseTexture "hud/leaderboard_class_demoknight_armored"
+	$alphatest 1
 }

@@ -1,10 +1,13 @@
-"UnlitGeneric"
-{
-	"$baseTexture" "hud/leaderboard_class_soldier_major_crits_2"
-	"$vertexcolor" 1
-	"$no_fullbright" 1
-	"$ignorez" 1
-	"%keywords" "tf"
-	"$translucent" 1
-}
+UnlitGeneric {
+	$baseTexture "hud/leaderboard_class_soldier_major_crits"
+	$translucent 1
 
+	$scale "[1 -1]"
+
+	Proxies {
+		textureTransform {
+			scalevar $scale
+			resultvar $baseTextureTransform
+		}
+	}
+}

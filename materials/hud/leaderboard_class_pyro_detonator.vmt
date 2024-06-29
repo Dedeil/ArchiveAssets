@@ -1,17 +1,4 @@
-"UnlitGeneric"
-{
-	"$baseTexture" "hud/leaderboard_class_pyro_detonator"
-	"$vertexcolor" 1
-	"$no_fullbright" 1
-	"$ignorez" 1
-	"%keywords" "tf"
-	"$translucent" 1
-   "Proxies"
-   {
-      "AnimatedTexture"
-      {
-         "animatedtexturevar" "$basetexture" "animatedtextureframenumvar" "$frame"
-         "animatedtextureframerate" "1"
-      }
-   }
+UnlitGeneric {
+   $baseTexture "hud/leaderboard_class_pyro_detonator"
+   $alphatest 1
 }

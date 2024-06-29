@@ -1,5 +1,4 @@
-"UnlitGeneric"
-{
-	"$basetexture" "hud/leaderboard_class_medic_kritz2_eyes"
-	"$translucent" 1
+UnlitGeneric {
+	$baseTexture "hud/leaderboard_class_medic_kritz"
+	$alphatest 1
 }
