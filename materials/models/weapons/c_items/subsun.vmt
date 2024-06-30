@@ -7,7 +7,7 @@
 	"$phongexponent" "55"
 	"$phongboost" "1"	
 	"$lightwarptexture" "models/weapons/c_items/c_pocket_watch_lightwarp"
-	"$phongwarptexture"  "models/weapons/c_items/c_pocket_watch_phongwarp"
+	"$phongwarptexture"  "models/weapons/c_items/c_haunted_watch_phongwarp"
 
 
 

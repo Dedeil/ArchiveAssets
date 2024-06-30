@@ -4,8 +4,6 @@
 	"$basemapalphaphongmask" "1"
 	// wrinkle maps need to have $bumpmap enabled to show up
 	"$bumpmap"		"models/player/shared/shared_normal"
-	"$compress"    "models/player/shared/tongue_compress"
-	"$stretch"     "models/player/shared/tongue_stretch"
 
 	"$phong" "1"
 
